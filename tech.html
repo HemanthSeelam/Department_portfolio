@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Events</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #f0f0f0;
+            position: relative;
+            margin: 0;
+            padding-top: 80px;
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            position: absolute;
+            left: 5px;
+            width: 100px;
+            height: 55px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .logout-button {
+            position:fixed;
+            right: 20px;
+            top: 20%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .logout-button:hover {
+            color: red;
+        }
+
+        .back-button {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            perspective: 1000px;
+            margin-top: 20px;
+        }
+
+        .card {
+            width: 220px;
+            height: 270px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .card:hover {
+            transform: rotateY(180deg);
+        }
+
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+        }
+
+        .card-front, .card-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .card-front {
+            color: white;
+        }
+
+        .card:nth-child(1) .card-front { background: linear-gradient(45deg, #ff4e50, #fc913a); }
+        .card:nth-child(2) .card-front { background: linear-gradient(45deg, #1e3c72, #2a5298); }
+        .card:nth-child(3) .card-front { background: linear-gradient(45deg, #f3f629, #c3d102); }
+        .card:nth-child(4) .card-front { background: linear-gradient(45deg, #4ff629, #44d102); }
+        .card:nth-child(5) .card-front { background: linear-gradient(45deg, #f68229, #d18902); }
+
+        .card-back {
+            background: #222;
+            transform: rotateY(180deg);
+            color: white;
+        }
+
+        .see-more {
+            background: #fff;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .popup img {
+            width: 400px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .popup button {
+            margin-top: 10px;
+            padding: 10px;
+            border: none;
+            background: #ff4e50;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .footer {
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            color: white;
+            position: fixed;
+            bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .popup img {
+                width: 300px;
+            }
+            .header {
+                flex-direction: column;
+                align-items: center;
+            }
+            .title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="history.back()">⬅</button>
+    <button class="logout-button" onclick="logout()">🔒</button>
+    <div class="header">
+        <img src="./imgs/VULOGO.svg" alt="Logo" class="logo">
+        <h1 class="title">TECHNICAL EVENTS</h1>
+    </div>
+    <div class="container">
+        <div class="card" onclick="showPopup('./imgs/WORKSHOP.jpg')"><div class="card-inner"><div class="card-front">Hackathon<br>April 10, 2025<br>10:00 AM<br>Venue: Hall A</div><div class="card-back"><button class="see-more">See More</button></div></div></div> 
+        <div class="card" onclick="showPopup('./imgs/ai_event.jpg')"><div class="card-inner"><div class="card-front">AI Workshop<br>may 15, 2025<br>2:00 PM<br>Venue: Lab 13</div><div class="card-back"><button class="see-more">See More</button></div></div></div>
+        <div class="card" onclick="showPopup('./imgs/Hackathon.jpg')"><div class="card-inner"><div class="card-front">Ideathon<br>April 21, 2025<br>2:00 PM<br>Venue: Lab 11</div><div class="card-back"><button class="see-more">See More</button></div></div></div>
+        <div class="card" onclick="showPopup('./imgs/quizz_hunt.jpg')"><div class="card-inner"><div class="card-front">CODE HUNT<br>April 15, 2025<br>2:00 PM<br>Venue: Lab 7</div><div class="card-back"><button class="see-more">See More</button></div></div></div>
+        <div class="card" onclick="showPopup('./imgs/vcode.jpg')"><div class="card-inner"><div class="card-front">Techincal Quiz<br>April 18, 2025<br>2:00 PM<br>Venue: Lab 4</div><div class="card-back"><button class="see-more">See More</button></div></div></div>
+    </div>
+    <div class="popup" id="popup"><img id="popup-img" src="./imgs/A-BLOCK.jpg" alt="Event Poster"><button onclick="closePopup()">Close</button></div>
+    <div class="footer">&copy; 2025 Technical Events. All Rights Reserved.</div>
+    <script>
+        function showPopup(imgSrc) {
+            document.getElementById('popup-img').src = imgSrc;
+            document.getElementById('popup').style.display = 'block';
+        }
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+        function logout() {
+            window.location.href = 'LOGIN.HTML';
+        }
+    </script>
+</body>
+</html>

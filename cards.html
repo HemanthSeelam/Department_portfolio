@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Selection</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+            position: relative;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+        .logo {
+            width: 130px;
+        }
+        .icons {
+            display: flex;
+            gap: 15px;
+            position: relative;
+            color: #000;
+            z-index: 1000; /* Add this */
+        }
+        .icon {
+            font-size: 24px;
+            cursor: pointer;
+            position: relative;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background-color: rgb(100, 93, 93);
+            box-shadow: 0 4px 8px rgba(246, 157, 157, 0.2);
+            border-radius: 5px;
+            width: 150px;
+            padding: 10px;
+            z-index: 9999; /* Add this */
+        }
+        .dropdown a {
+            display: block;
+            padding: 8px;
+            text-decoration: none;
+            color: rgb(246, 233, 233);
+        }
+        .dropdown a:hover {
+            background-color: #681919;
+        }
+        .store-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            justify-items: center;
+            padding-top: 20px;
+        }
+        .store-card {
+            width: 300px;
+            height: 200px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            perspective: 1000px;
+        }
+        .store-inner {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .store-card:hover .store-inner {
+            transform: rotateY(180deg);
+        }
+        .store-front, .store-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .store-front {
+            background-color: black;
+            display: flex;
+            align-items: center;
+        }
+        .store-back {
+            background-color: rgb(250, 175, 114);
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+            padding: 10px;
+        }
+        .store-card img {
+            width: 40%;
+            height: 100%;
+            object-fit: cover;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+        .store-content {
+            width: 60%;
+            text-align: center;
+            padding: 10px;
+        }
+        .store-card h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .store-card p {
+            font-size: 14px;
+            color: #fff;
+        }
+        .open-btn {
+            text-decoration: none;
+            font-weight: bold;
+            color: #000;
+            background-color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        @media (max-width: 600px) {
+            .title {
+                font-size: 22px;
+            }
+            .store-options {
+                grid-template-columns: 1fr;
+            }
+        }
+        .mini-footer {
+    background-color: #111;
+    color: #aaa;
+    text-align: center;
+    padding: 12px 10px;
+    font-size: 13px;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="./imgs/VULOGO.svg" alt="Logo" class="logo">
+            <h2 class="title">CSE BULLETIN</h2>
+            <div class="icons">
+                <i class="fas fa-user icon" onclick="toggleDropdown('profile-menu')"></i>
+                <div id="profile-menu" class="dropdown">
+                    <a href="http://160.187.169.12/student/">Student Portal</a>
+                    <a href="https://vignan.ac.in/newvignan/people.php">Faculty</a>
+                    <a href="https://vumoodle.in/">VU_Moodle</a>
+                    <a href="./index.html">Logout</a>
+                </div>
+                <i class="fas fa-bell icon" onclick="toggleDropdown('notification-menu')"></i>
+                <div id="notification-menu" class="dropdown">
+                    <p>>> VCODE2K25 ON APRIL 16TH</p>
+                    <P>>> Exciting Coding Contests,Sports and Culturals are going up !! <br> HURRY UP !</P>
+                </div>
+            </div>
+        </div>
+        <div class="store-options">
+            <script>
+                const stores = [
+                    
+                    { img: "https://i.pinimg.com/736x/8a/be/81/8abe81a806472d1356a39d8f898b0ac2.jpg", title: "Dept. NEWS", desc: "NEWS of CSE",link:"index.HTML" },
+                    { img: "https://i.pinimg.com/736x/a3/a4/e9/a3a4e98a61e49eab7a355f1f55a39b65.jpg", title: "Technical", desc: "TECHNICAL EVENTS",link:"tech.html" },
+                    { img: "https://i.pinimg.com/736x/6a/a5/f9/6aa5f961827ad4c88e7db980a4ecf570.jpg", title: "Placement", desc: "Placements",link:"https://placement-pink.vercel.app/" },
+                    { img: "https://i.pinimg.com/736x/2c/2f/0b/2c2f0b549007c3addf71905265112680.jpg", title: "CSEGALLERY", desc: "CSE Gallery",link:"Department.html" },
+                    { img: "https://t3.ftcdn.net/jpg/06/04/80/64/360_F_604806439_5u1rZgPZcCADupOwV8Wj0yALmhc5dtjG.jpg", title: "MAIN AUTHORITY", desc: "MAIN AUTHORITY",link:"cse.html" },
+
+                    { img: "https://classroomclipart.com/image/static7/preview2/achievement-certificate-with-seal-star-and-ribbon-61211.jpg", title: "Achievement", desc: "Achievements",link:"archive.html" },
+                    { img: "https://i.pinimg.com/736x/34/b7/b2/34b7b24a81b35eb6c3f6421e8a20ba9a.jpg", title: "FEEDBACK", desc: "FEEDBACK ",link:"feed.html" },
+                    { img: "https://i.pinimg.com/736x/6d/04/72/6d0472719df92940a5d68243789d46ba.jpg", title: "AboutUS", desc: "About us",link:"about.html"}
+                ];
+                document.write(stores.map(store => `
+                    <div class="store-card">
+                        <div class="store-inner">
+                            <div class="store-front">
+                                <img src="${store.img}" alt="${store.title}">
+                                <div class="store-content">
+                                    <h3>${store.title}</h3>
+                                    <p>${store.desc}</p>
+                                </div>
+                            </div>
+                            <div class="store-back">
+                                <p>Explore more !</p>
+                                <a href="${store.link}" class="open-btn">Open</a>
+                            </div>
+                        </div>
+                    </div>`).join(''));
+            </script>
+        </div>
+    </div>
+    <footer class="mini-footer">
+        <p>&copy; 2025 CSE Bulletin. All rights reserved.</p>
+      </footer>
+      
+    <script>
+        function toggleDropdown(id) {
+            var menu = document.getElementById(id);
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+    </script>
+</body>
+</html>

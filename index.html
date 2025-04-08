@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="./assests/LOGIN.CSS">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script>
+        function validateStudentForm() {
+            let username = document.getElementById('student-username').value;
+            let password = document.getElementById('student-password').value;
+            if (username === "" || password === "") {
+                alert("All fields must be filled.");
+                return false;
+            }
+            // if (!/^[0-9]+$/.test(username)) {
+            //     alert("Username must contain only numbers.");
+            //     return false;
+            // }
+            if (password !== "CSE@123") {
+                alert("Password must be CSE@123.");
+                return false;
+            }
+            document.querySelector('.content').style.opacity = '0';
+            document.getElementById('video-container').style.display = 'flex';
+            setTimeout(() => { window.location.href = "cards.html"; }, 3000);
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <img src="./imgs/VULOGO.svg" alt="College Logo" class="college-logo">
+    <div class="content">
+        <div class="logo">
+            <img src="./imgs/CSE_BULLETIN.png" alt="CSE Bulletin">
+        </div>
+        <div id="student-register" class="login-container">
+            <h1>Student Registration</h1>
+            <div class="input-container">
+                <i class="fa-solid fa-id-badge"></i>
+                <input type="text" id="student-username" placeholder="Student ID">
+            </div>
+            <div class="input-container">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="student-password" placeholder="Password">
+            </div>
+            <button onclick="return validateStudentForm()">Register</button>
+        </div>
+    </div>
+    <div class="video-container" id="video-container">
+        <video autoplay muted id="transition-video">
+            <source src="./imgs/news.mp4" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <img src="./imgs/img1 login.jpg" alt="Left Image" class="corner-image left">
+    <img src="./imgs/img2 login.jpg" alt="Right Image" class="corner-image right">
+</body>
+</html>

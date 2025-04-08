@@ -1,0 +1,139 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+}
+
+.college-logo {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 500px;
+    height: auto;
+    opacity: 0.8;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.login-container {
+    background-color: #ffffff;
+    color: #333;
+    padding: 30px;
+    border-radius: 50%;
+    width: 400px;
+    height: 400px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid black;
+    transition: all 0.3s ease;
+}
+
+.input-container {
+    position: relative;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.input-container i {
+    position: absolute;
+    left: 10px;
+    color: #888;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 12px 40px 12px 30px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+}
+
+.input-container:last-child i {
+    right: 10px;
+    left: auto;
+    cursor: pointer;
+}
+
+.login-container button {
+    width: 80%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 20px;
+    border: none;
+    background: #2a5298;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.guest-button {
+    background: #28a745;
+}
+
+.login-container button:hover {
+    background-color: #1a3d6e;
+    transform: scale(1.05);
+}
+
+.guest-button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+#video-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    justify-content: center;
+    align-items: center;
+}
+
+#transition-video {
+    width: 40vw;
+    max-width: 400px;
+}
+
+.corner-image {
+    position: fixed;
+    width: 500px;
+    height: auto;
+    bottom: 10px;
+}
+
+.left {
+    left: 30px;
+}
+
+.right {
+    right: 30px;
+}
+

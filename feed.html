@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSE Feedback Form</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+    }
+
+    select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .chart-container {
+      margin-top: 50px;
+    }
+
+    canvas {
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>CSE Department Feedback</h2>
+    <form id="feedbackForm">
+      <label for="teaching">Teaching Quality</label>
+      <select id="teaching">
+        <option value="5">Excellent</option>
+        <option value="4">Good</option>
+        <option value="3">Average</option>
+        <option value="2">Poor</option>
+        <option value="1">Very Poor</option>
+      </select>
+
+      <label for="labs">Lab Facilities</label>
+      <select id="labs">
+        <option value="5">Excellent</option>
+        <option value="4">Good</option>
+        <option value="3">Average</option>
+        <option value="2">Poor</option>
+        <option value="1">Very Poor</option>
+      </select>
+
+      <label for="infra">Infrastructure</label>
+      <select id="infra">
+        <option value="5">Excellent</option>
+        <option value="4">Good</option>
+        <option value="3">Average</option>
+        <option value="2">Poor</option>
+        <option value="1">Very Poor</option>
+      </select>
+
+      <label for="feedback">Additional Comments</label>
+      <textarea id="feedback" rows="4" placeholder="Write your comments..."></textarea>
+
+      <button type="submit">Submit Feedback</button>
+    </form>
+
+    <div class="chart-container">
+      <h3 style="text-align:center;">Average Feedback Overview</h3>
+      <canvas id="feedbackChart"></canvas>
+    </div>
+  </div>
+
+  <script>
+    const feedbackData = {
+      teaching: [],
+      labs: [],
+      infra: []
+    };
+
+    const form = document.getElementById('feedbackForm');
+    const ctx = document.getElementById('feedbackChart').getContext('2d');
+
+    let chart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Teaching', 'Lab Facilities', 'Infrastructure'],
+        datasets: [{
+          label: 'Average Feedback',
+          data: [0, 0, 0],
+          backgroundColor: ['#007bff', '#28a745', '#ffc107'],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }
+    });
+
+    function updateChart() {
+      const averages = ['teaching', 'labs', 'infra'].map(category => {
+        const arr = feedbackData[category];
+        if (arr.length === 0) return 0;
+        const sum = arr.reduce((a, b) => a + b, 0);
+        return (sum / arr.length).toFixed(2);
+      });
+
+      chart.data.datasets[0].data = averages;
+      chart.update();
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const teaching = parseInt(document.getElementById('teaching').value);
+      const labs = parseInt(document.getElementById('labs').value);
+      const infra = parseInt(document.getElementById('infra').value);
+
+      feedbackData.teaching.push(teaching);
+      feedbackData.labs.push(labs);
+      feedbackData.infra.push(infra);
+
+      updateChart();
+
+      form.reset();
+      alert("Thank you for your feedback!");
+    });
+  </script>
+</body>
+</html>

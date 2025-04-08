@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UNO Card Style - About Us</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #111827;
+      color: #fff;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #facc15;
+    }
+
+    .team {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .uno-card {
+      width: 220px;
+      height: 320px;
+      border-radius: 25px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+      position: relative;
+      overflow: hidden;
+      transform: rotate(-5deg);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .uno-card:hover {
+      transform: rotate(0deg) scale(1.05);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+    }
+
+    .uno-content {
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .initial-circle {
+      width: 80px;
+      height: 80px;
+      background: #fff;
+      color: #000;
+      border-radius: 50%;
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .uno-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
+    .uno-card p {
+      font-size: 0.95rem;
+      color: #e2e8f0;
+    }
+
+    /* Backgrounds like UNO cards */
+    .uno-red {
+      background: linear-gradient(135deg, #ef4444 60%, #111 100%);
+    }
+
+    .uno-blue {
+      background: linear-gradient(135deg, #3b82f6 60%, #111 100%);
+    }
+
+    .uno-yellow {
+      background: linear-gradient(135deg, #facc15 60%, #111 100%);
+    }
+
+    .uno-green {
+      background: linear-gradient(135deg, #22c55e 60%, #111 100%);
+    }
+
+    @media (max-width: 600px) {
+      .uno-card {
+        transform: none;
+        width: 100%;
+        max-width: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Meet Our Team</h1>
+
+  <div class="team">
+    <div class="uno-card uno-red">
+      <div class="uno-content">
+        <div class="initial-circle">SH</div>
+        <h3>Seelam Hemanth</h3>
+        <p>Lead Developer</p>
+        <p>221FA04691<br> CSE</p>
+      </div>
+    </div>
+
+    <div class="uno-card uno-blue">
+      <div class="uno-content">
+        <div class="initial-circle">SM</div>
+        <h3>Sri Manjunadh</h3>
+         <p>221FA04721<br> CSE</p>
+      </div>
+    </div>
+
+    <div class="uno-card uno-green">
+      <div class="uno-content">
+        <div class="initial-circle">H</div>
+        <h3>Harshitha</h3>
+         <p>221FA04517<br> CSE</p>
+      </div>
+    </div>
+
+    <div class="uno-card uno-yellow">
+      <div class="uno-content">
+        <div class="initial-circle">A</div>
+        <h3>BALA CHANDHU</h3>
+         <p>221FA04443<br> CSE</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

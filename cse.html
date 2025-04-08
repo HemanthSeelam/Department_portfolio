@@ -1,0 +1,105 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="./CSE.css">
+     
+<img src="./imgs/VULOGO.svg" alt="Top Left Image" class="top-left-image">
+<h1 id="title" style="text-align: center;">The Stakeholders </h1> 
+
+<div class="container">
+
+    <div class="slide">
+
+        
+        <div class="item" style="background-image: url(https://i.pinimg.com/736x/34/b7/b2/34b7b24a81b35eb6c3f6421e8a20ba9a.jpg);">
+            <div class="content">
+                <div class="name">Dr.Phani Kumar HOD</div>
+                <div class="des">CSE DEPARTMENT HOD</div>
+                <!-- <button>See More</button> -->
+                <button onclick="openNewPage('MAIN.HTML')">See More</button>
+
+            </div>
+        </div>
+        <div class="item" style="background-image: url(https://i.pinimg.com/736x/f1/be/f2/f1bef23b65964532685050c004bf2143.jpg);">
+            <div class="content">
+                <div class="name">Krishna Kishore </div>
+                <div class="des">DEAN OF THE DEPARTMENT</div>
+                <!-- <button>See More</button> -->
+                <!-- <button onclick="openNewPage('CSE.html')">See More</button> -->
+            </div>
+        </div>
+        <div class="item" style="background-image: url(https://i.pinimg.com/736x/2f/c4/3e/2fc43eef770a3c2da5df8733085fb1de.jpg);">
+            <div class="content">
+                <div class="name">Dr. Ongole Gandhi</div>
+                <div class="des">3rd Year Coordinator</div>
+                <!-- <button>See More</button> -->
+            </div>
+        </div>
+        <div class="item" style="background-image: url(https://i.pinimg.com/736x/ee/66/15/ee6615d40c7dc5af8ef73d7ffc57630a.jpg);">
+            <div class="content">
+                <div class="name">Ms.Jansee</div>
+                <div class="des">2nd Year Coordinator</div>
+                <!-- <button>See More</button> -->
+            </div>
+        </div>
+        <!-- <div class="item" style="background-image: url(https://i.pinimg.com/736x/34/b7/b2/34b7b24a81b35eb6c3f6421e8a20ba9a.jpg);">
+            <div class="content">
+                <div class="name">Placements</div>
+                <div class="des">A broadcast placement description may refer to a job posting for a student placement in a broadcast organization or to a product placement in a broadcast medium</div>
+                <button>See More</button>
+            </div>
+        </div>
+        <div class="item" style="background-image: url(https://i.pinimg.com/736x/8a/be/81/8abe81a806472d1356a39d8f898b0ac2.jpg);">
+            <div class="content">
+                <div class="name">Department News</div>
+                <div class="des">To know what's interesting in our Department</div>
+                <button>See More</button>
+            </div>
+        </div> -->
+
+    </div>
+
+    <div class="button">
+        <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+        <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let next = document.querySelector('.next');
+        let prev = document.querySelector('.prev');
+    
+        next.addEventListener('click', function () {
+            let items = document.querySelectorAll('.item');
+            document.querySelector('.slide').appendChild(items[0]);
+        });
+    
+        prev.addEventListener('click', function () {
+            let items = document.querySelectorAll('.item');
+            document.querySelector('.slide').prepend(items[items.length - 1]);
+        });
+    
+        // Function to open a new page when clicking the button
+        function openNewPage(pageUrl) {
+            window.open(pageUrl, '_blank'); // Opens in a new tab
+        }
+    
+        // Apply click effect to all "See More" buttons
+        document.querySelectorAll('.content button').forEach(button => {
+            button.addEventListener("mousedown", function () {
+                this.style.backgroundColor = "yellow"; // Change to yellow when clicked
+            });
+    
+            button.addEventListener("mouseup", function () {
+                setTimeout(() => {
+                    this.style.backgroundColor = ""; // Restore original color
+                }, 200); // Delay to see the effect
+            });
+    
+            button.addEventListener("click", function () {
+                openNewPage(""); // Change the page URL as needed
+            });
+        });
+    });
+
+    
+</script>
+
+</div>

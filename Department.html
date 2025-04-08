@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #ebeaf5;
+            background-image:
+            repeating-linear-gradient(
+                to right, transparent 0 100px,
+                #25283b22 100px 101px
+            ),
+            repeating-linear-gradient(
+                to bottom, transparent 0 100px,
+                #25283b22 100px 101px
+            );
+        }
+        
+        body::before{
+            position: absolute;
+            width: min(1400px, 90vw);
+            top: 10%;
+            left: 50%;
+            height: 90%;
+            transform: translateX(-50%);
+            content: '';
+            background-image: url(images/bg.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: top center;
+            pointer-events: none;
+        }
+    </style>
+    <link rel="stylesheet" href="./Department.css">
+</head>
+<body>
+
+    <div class="banner">
+        <div class="slider" style="--quantity: 11">
+            <div class="item" style="--position: 1"><img src="./imgs/NB-1.jpg" alt=""></div>
+            <div class="item" style="--position: 2"><img src="./imgs/NB-2.jpg" alt=""></div>
+            <div class="item" style="--position: 3"><img src="./imgs/NB-3.jpg" alt=""></div>
+            <div class="item" style="--position: 4"><img src="./imgs/NB-4.jpg" alt=""></div>
+            <div class="item" style="--position: 5"><img src="./imgs/NB-5.jpg" alt=""></div>
+            <div class="item" style="--position: 6"><img src="imgs/NB-6.jpg" alt=""></div>
+            <div class="item" style="--position: 7"><img src="imgs/NB-7.jpg" alt=""></div>
+            <div class="item" style="--position: 8"><img src="imgs/NB-8.jpg" alt=""></div>
+            <div class="item" style="--position: 9"><img src="imgs/NB-9.jpg" alt=""></div>
+            <div class="item" style="--position: 10"><img src="imgs/NB-10.jpg" alt=""></div> 
+            <div class="item" style="--position: 11"><img src="imgs/NB-11.jpg" alt=""></div> 
+
+        </div>
+        <div class="content">
+            <h1 data-content="">
+                CSE 
+            </h1>
+            <div class="author">
+                <h2>Vignan University</h2>
+                <p><b>Vadlamudi</b></p>
+                <p>
+                
+                </p>
+            </div>
+            <div class="model"></div>
+        </div>
+        </div>
+        <div class="college-overview">
+                <h1>Department Facilities Overview</h1>
+          <div class="college-grid">
+        
+            <div class="college-card">
+              <div class="college-title">3rd floor</div>
+              <div class="stats">
+                <div class="stat">
+                  <i class="fas fa-school"></i>
+                  <div class="stat-info">
+                    <strong>20</strong>
+                    Rooms
+                  </div>
+                </div>
+                <div class="stat">
+                  <i class="fas fa-chalkboard-teacher"></i>
+                  <div class="stat-info">
+                    <strong>3</strong>
+                    Staff Rooms
+                  </div>
+                </div>
+                <div class="stat">
+                  <i class="fas fa-flask"></i>
+                  <div class="stat-info">
+                    <strong>10</strong>
+                    Labs
+                  </div>
+                </div>
+                <div class="stat">
+                  <i class="fas fa-utensils"></i>
+                  <div class="stat-info">
+                    <strong>1</strong>
+                    Canteens
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <div class="college-card">
+              <div class="college-title">4th floor</div>
+              <div class="stats">
+                <div class="stat">
+                  <i class="fas fa-school"></i>
+                  <div class="stat-info">
+                    <strong>20</strong>
+                    Rooms
+                  </div>
+                </div>
+                <div class="stat">
+                  <i class="fas fa-chalkboard-teacher"></i>
+                  <div class="stat-info">
+                    <strong>3</strong>
+                    Staff Rooms
+                  </div>
+                </div>
+                <div class="stat">
+                  <i class="fas fa-flask"></i>
+                  <div class="stat-info">
+                    <strong>11</strong>
+                    Labs
+                  </div>
+                </div>
+                <div class="stat">
+                  <i class="fas fa-utensils"></i>
+                  <div class="stat-info">
+                    <strong>0</strong>
+                    Canteens
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="college-card">
+                <div class="college-title">Metting rooms</div>
+                <div class="stats">
+                  <div class="stat">
+                    <i class="fas fa-school"></i>
+                    <div class="stat-info">
+                      <strong>2</strong>
+                      Seminar halls
+                    </div>
+                  </div>
+                  <div class="stat">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <div class="stat-info">
+                      <strong>2</strong>
+                      TBI Rooms
+                    </div>
+                  </div>
+                  <div class="stat">
+                    <i class="fas fa-flask"></i>
+                    <div class="stat-info">
+                      <strong>1</strong>
+                      Robotics LAB
+                    </div>
+                  </div>
+                  <div class="stat">
+                    <i class="fas fa-utensils"></i>
+                    <div class="stat-info">
+                      <strong>1</strong>
+                      Waiting halls
+                    </div>
+                  </div>
+                </div>
+            </div>
+        
+            <div class="college-card">
+              <div class="college-title">5th Floor</div>
+              <div class="stats">
+                <div class="stat">
+                  <i class="fas fa-school"></i>
+                  <div class="stat-info">
+                    <strong>20</strong>
+                    Rooms
+                  </div>
+                </div>
+                <div class="stat">
+                  <i class="fas fa-chalkboard-teacher"></i>
+                  <div class="stat-info">
+                    <strong>3</strong>
+                    Staff Rooms
+                  </div>
+                </div>
+                <div class="stat">
+                  <i class="fas fa-flask"></i>
+                  <div class="stat-info">
+                    <strong>10</strong>
+                    Labs
+                  </div>
+                </div>
+                <div class="stat">
+                  <i class="fas fa-utensils"></i>
+                  <div class="stat-info">
+                    <strong>1</strong>
+                    Canteens
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+    
+    
+</body>
+</html>

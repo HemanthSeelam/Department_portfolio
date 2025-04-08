@@ -1,0 +1,285 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+}
+
+.college-logo {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 300px;
+    height: auto;
+    opacity: 0.8;
+}
+
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.login-container {
+    background-color: #ffffff;
+    color: #333;
+    padding: 30px;
+    border-radius: 50%;
+    width: 350px;
+    height: 350px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid black;
+    transition: all 0.3s ease;
+}
+
+.input-container {
+    position: relative;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.input-container i {
+    position: absolute;
+    left: 10px;
+    color: #888;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 12px 40px 12px 30px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+}
+
+.input-container:last-child i {
+    right: 10px;
+    left: auto;
+    cursor: pointer;
+}
+
+.login-container button {
+    width: 80%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 20px;
+    border: none;
+    background: #2a5298;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.guest-button {
+    background: #28a745;
+}
+
+.login-container button:hover {
+    background-color: #1a3d6e;
+    transform: scale(1.05);
+}
+
+.guest-button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+#video-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgb(252, 252, 252);
+    justify-content: center;
+    align-items: center;
+}
+
+#transition-video {
+    width: 40vw;
+    max-width: 400px;
+}
+
+.corner-image {
+    position: fixed;
+    width: 365px;
+    height: auto;
+    bottom: 10px;
+}
+
+.left {
+    left: 30px;
+}
+
+.right {
+    right: 30px;
+}
+
+/* Default styles are already optimized for larger screens */
+
+@media (max-width: 1024px) {
+    .college-logo {
+        width: 250px;
+    }
+
+    .login-container {
+        width: 320px;
+        height: 320px;
+    }
+
+    .input-container input {
+        padding: 10px 35px 10px 25px;
+    }
+
+    .login-container button {
+        font-size: 14px;
+    }
+
+    #transition-video {
+        width: 50vw;
+        max-width: 350px;
+    }
+
+    .corner-image {
+        width: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .college-logo {
+        width: 200px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .content {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .login-container {
+        width: 300px;
+        height: 300px;
+        padding: 20px;
+    }
+
+    .login-container h1 {
+        font-size: 18px;
+    }
+
+    .input-container input {
+        font-size: 14px;
+        padding: 10px 30px;
+    }
+
+    .login-container button {
+        width: 90%;
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .corner-image {
+        width: 80px;
+    }
+
+    #transition-video {
+        width: 60vw;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .college-logo {
+        width: 150px;
+        top: 5px;
+    }
+
+    .login-container {
+        width: 260px;
+        height: 260px;
+        padding: 15px;
+        border-radius: 30px;
+    }
+
+    .login-container h1 {
+        font-size: 16px;
+    }
+
+    .input-container input {
+        font-size: 12px;
+        padding: 8px 25px;
+    }
+
+    .login-container button {
+        width: 100%;
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .corner-image {
+        width: 90px;
+    }
+
+    #transition-video {
+        width: 80vw;
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 320px) {
+    .college-logo {
+        width: 120px;
+    }
+
+    .login-container {
+        width: 230px;
+        height: 230px;
+        padding: 10px;
+    }
+
+    .login-container h1 {
+        font-size: 14px;
+    }
+
+    .input-container input {
+        font-size: 11px;
+        padding: 7px 20px;
+    }
+
+    .login-container button {
+        font-size: 11px;
+        padding: 7px;
+    }
+
+    .corner-image {
+        width: 90px;
+    }
+
+    #transition-video {
+        width: 90vw;
+        max-width: 200px;
+    }
+}
