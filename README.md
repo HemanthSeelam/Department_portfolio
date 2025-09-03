@@ -1,5 +1,5 @@
 # Department_portfolio
-![Alt text](images/) 
+![Alt text](images/Scanner.jpg) 
 
 🧾 CSE Department – Web Portal
 Welcome to the official Computer Science & Engineering Department portal of Vignan University.
