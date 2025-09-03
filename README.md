@@ -1,5 +1,10 @@
 # Department_portfolio
-<img src="https://raw.githubusercontent.com/HemanthSeelam/Department_portfolio/main/imgs/Scanner.jpg" alt="Scanner" width="500"/>
+
+
+![Scanner](https://hemanthseelam.github.io/Department_portfolio/imgs/Scanner.jpg)
+
+🔗 [Visit Department Portfolio](https://hemanthseelam.github.io/Department_portfolio/)
+
 
 
 🧾 CSE Department – Web Portal
