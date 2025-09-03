@@ -1,5 +1,6 @@
 # Department_portfolio
-![Alt text](images/Scanner.jpg) 
+<img src="https://raw.githubusercontent.com/HemanthSeelam/Department_portfolio/main/imgs/Scanner.jpg" alt="Scanner" width="500"/>
+
 
 🧾 CSE Department – Web Portal
 Welcome to the official Computer Science & Engineering Department portal of Vignan University.
